@@ -3,12 +3,10 @@ var city = "";
 var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?units=imperial&q=";
 var searchInput = document.querySelector(".search-body input");
 var searchBtn = document.querySelector(".search btn");
-var weatherImg = document.getElementById(".weather-img")
-
-var today = dayjs();
-  $(".date").text(today.format("ddd MMMM D, YYYY"));
 
 //days of weather
+var today = dayjs();
+  $(".date").text(today.format("ddd MMMM D, YYYY"));
 var day1 = today.add(1, 'day');
   $(".date1").text(day1.format("ddd MMMM D, YYYY"));
 var day2 = today.add(2, 'day');
@@ -35,13 +33,11 @@ function updateDay() {
 async function fetchWeather(city) {
   const Response = await fetch(apiUrl + city +"&appid=" + apiKey);
   var data = await Response.json(); 
-  
 
   console.log(data);
+
   //gets data from api to append to current day on browser
-  // document.querySelector(".icon").innerHTML = data.list[0].weather[0].icon;
   document.querySelector(".city").innerHTML = data.city.name; 
-  // document.querySelector(".date1").innerHTML = (day1);
   document.querySelector(".temperature").innerHTML = "Temperature: " + Math.round(data.list[0].main.temp) + "°F";
   document.querySelector(".description").innerHTML = "Description: " + data.list[0].weather[0].description;
   document.querySelector(".wind").innerHTML = "Wind: " + Math.round(data.list[0].wind.speed) + "Mph";
@@ -83,13 +79,157 @@ async function fetchWeather(city) {
   document.querySelector(".humidity5").innerHTML = "Humidity: " + data.list[5].main.humidity + "%";
 
 
-// var weatherImg = document.querySelector(".weather-img")
-//   if (data.list[0].weather[0].icon == "01d"){
-//     $(weatherImg).attr('src',"./assets/images/clear.png");
-//   } 
-//   else if (data.list[0].weather[0].icon == "04n"){
-//     $(weatherImg).attr('src',"./assets/images/clouds.png");
-//   }
+//change weather icon depending on 
+var weatherIcon = document.querySelector(".weathericon");
+var weatherIcon1 = document.querySelector(".weathericon1");
+var weatherIcon2 = document.querySelector(".weathericon2");
+var weatherIcon3 = document.querySelector(".weathericon3");
+var weatherIcon4 = document.querySelector(".weathericon4");
+var weatherIcon5 = document.querySelector(".weathericon5");
+var clear = "./assets/images/clear.png";
+var clouds = "./assets/images/clouds.png";
+var rain = "./assets/images/rain.png";
+var thunderstorm = "./assets/images/thunderstorm.png";
+var drizzle = "./assets/images/drizzle.png";
+var haze = "./assets/images/drizzle.png";
+var snow = "./assets/images/snow.png";
+
+//change weather icon for current day
+if (data.list[0].weather[0].icon == "01d" || "01n"){
+    weatherIcon.setAttribute("src",clear);
+  } 
+  else if (data.list[0].weather[0].icon == "02d" || "02n" || "03d" || "03n" || "04d" || "04n"){
+    weatherIcon.setAttribute("src",clouds);
+  }
+  else if (data.list[0].weather[0].icon == "10d"){
+    weatherIcon.setAttribute("src",rain);
+  }
+  else if (data.list[0].weather[0].icon == "11d"){
+    weatherIcon.setAttribute("src",thunderstorm);
+  }
+  else if (data.list[0].weather[0].icon == "09d"){
+    weatherIcon.setAttribute("src",drizzle);
+  }
+  else if (data.list[0].weather[0].icon == "50d"){
+    weatherIcon.setAttribute("src",haze);
+  }
+  else if (data.list[0].weather[0].icon == "13d"){
+    weatherIcon.setAttribute("src",snow);
+  }
+
+//change weather icon for day 1
+if (data.list[1].weather[0].icon == "01d" || "01n"){
+  weatherIcon1.setAttribute("src",clear);
+} 
+  else if (data.list[1].weather[0].icon == "02d" || "02n" || "03d" || "03n" || "04d" || "04n"){
+    weatherIcon1.setAttribute("src",clouds);
+  }
+  else if (data.list[1].weather[0].icon == "10d"){
+    weatherIcon1.setAttribute("src",rain);
+  }
+  else if (data.list[1].weather[0].icon == "11d"){
+    weatherIcon1.setAttribute("src",thunderstorm);
+  }
+  else if (data.list[1].weather[0].icon == "09d"){
+    weatherIcon1.setAttribute("src",drizzle);
+  }
+  else if (data.list[1].weather[0].icon == "50d"){
+    weatherIcon1.setAttribute("src",haze);
+  }
+  else if (data.list[1].weather[0].icon == "13d"){
+    weatherIcon1.setAttribute("src",snow);
+  }
+
+//change weather icon for day 2
+if (data.list[2].weather[0].icon == "01d" || "01n"){
+    weatherIcon2.setAttribute("src",clear);
+} 
+  else if (data.list[2].weather[0].icon == "02d" || "02n" || "03d" || "03n" || "04d" || "04n"){
+    weatherIcon2.setAttribute("src",clouds);
+  }
+  else if (data.list[2].weather[0].icon == "10d"){
+    weatherIcon2.setAttribute("src",rain);
+  }
+  else if (data.list[2].weather[0].icon == "11d"){
+    weatherIcon2.setAttribute("src",thunderstorm);
+  }
+  else if (data.list[2].weather[0].icon == "09d"){
+    weatherIcon2.setAttribute("src",drizzle);
+  }
+  else if (data.list[2].weather[0].icon == "50d"){
+    weatherIcon2.setAttribute("src",haze);
+  }
+  else if (data.list[2].weather[0].icon == "13d"){
+    weatherIcon2.setAttribute("src",snow);
+  }
+
+//change weather icon for day 3
+if (data.list[3].weather[0].icon == "01d" || "01n"){
+  weatherIcon3.setAttribute("src",clear);
+}
+  else if (data.list[3].weather[0].icon == "02d" || "02n" || "03d" || "03n" || "04d" || "04n"){
+    weatherIcon3.setAttribute("src",clouds);
+  }
+  else if (data.list[3].weather[0].icon == "10d"){
+    weatherIcon3.setAttribute("src",rain);
+  }
+  else if (data.list[3].weather[0].icon == "11d"){
+    weatherIcon3.setAttribute("src",thunderstorm);
+  }
+  else if (data.list[3].weather[0].icon == "09d"){
+    weatherIcon3.setAttribute("src",drizzle);
+  }
+  else if (data.list[3].weather[0].icon == "50d"){
+    weatherIcon3.setAttribute("src",haze);
+  }
+  else if (data.list[3].weather[0].icon == "13d"){
+    weatherIcon3.setAttribute("src",snow);
+  }
+
+  //change weather icon for day 4
+if (data.list[4].weather[0].icon == "01d" || "01n"){
+  weatherIcon4.setAttribute("src",clear);
+} 
+  else if (data.list[4].weather[0].icon == "02d" || "02n" || "03d" || "03n" || "04d" || "04n"){
+    weatherIcon4.setAttribute("src",clouds);
+  }
+  else if (data.list[4].weather[0].icon == "10d"){
+    weatherIcon4.setAttribute("src",rain);
+  }
+  else if (data.list[4].weather[0].icon == "11d"){
+    weatherIcon4.setAttribute("src",thunderstorm);
+  }
+  else if (data.list[4].weather[0].icon == "09d"){
+    weatherIcon4.setAttribute("src",drizzle);
+  }
+  else if (data.list[4].weather[0].icon == "50d"){
+    weatherIcon4.setAttribute("src",haze);
+  }
+  else if (data.list[4].weather[0].icon == "13d"){
+    weatherIcon4.setAttribute("src",snow);
+  }
+
+  //change weather icon for day 5
+if (data.list[5].weather[0].icon == "01d" || "01n"){
+  weatherIcon5.setAttribute("src",clear);
+} 
+  else if (data.list[5].weather[0].icon == "02d" || "02n" || "03d" || "03n" || "04d" || "04n"){
+  }
+  else if (data.list[5].weather[0].icon == "10d"){
+    weatherIcon5.setAttribute("src",rain);
+  }
+  else if (data.list[5].weather[0].icon == "11d"){
+    weatherIcon5.setAttribute("src",thunderstorm);
+  }
+  else if (data.list[5].weather[0].icon == "09d"){
+    weatherIcon5.setAttribute("src",drizzle);
+  }
+  else if (data.list[5].weather[0].icon == "50d"){
+    weatherIcon5.setAttribute("src",haze);
+  }
+  else if (data.list[5].weather[0].icon == "13d"){
+    weatherIcon5.setAttribute("src",snow);
+  }
 }
 
 $("#search-btn").on("click", function () {
@@ -101,6 +241,14 @@ if (searchInput.value == "") {
   fetchWeather(searchInput.value);
   }
   })
+
+
+function saveCityName () {
+  var cityName = document.querySelector(".cityname").value;
+  localStorage.setItem("cityname", cityName);
+  localStorage.getItem("cityname");
+}
+
 
 updateDay();
 
