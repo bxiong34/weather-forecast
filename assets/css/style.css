@@ -1,0 +1,176 @@
+:root {
+    --primary: #ffffff;
+    --secondary: #4199b9;
+    --tertiary: #8d90ca;
+    --light-dark: #4cb5dc;
+    --light: #9fd6ec;
+    --border-radius: 0.3rem;
+  }
+
+  body {
+    background-color: var(--primary);
+    margin: 0;
+    padding: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--light-dark);
+    line-height: 1.5;
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 1.4rem;
+    background-color: var(--dark);
+    color: var(--tertiary);
+    margin-top: 0%;
+    padding: 0% 0% 1% 5%;
+    text-align: center;
+  } 
+  
+  img {
+    padding-right: 1.5rem;
+  }
+
+
+  h1 {
+    font-weight: 700;
+    margin: 0;
+    color: var(--tertiary);
+    line-height: 1.25;
+  }
+
+  h3 {
+    font-size: medium;
+    font-weight: 500;
+    margin: 0;
+    color: var(--light-dark);
+    line-height: 1.25;
+  }
+
+  h2,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    margin: 0;
+    color: var(--light-dark);
+    line-height: 1.25;
+  }
+
+  h4 {
+    font-weight: 700;
+    margin: 0;
+    color: var(--tertiary);
+    line-height: 1.25;
+  }
+
+  #five-day-containers {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    width: 100%;
+   }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    padding-bottom: 3%;
+    padding-top: 2%;
+  }
+  
+  .btn {
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 2px 5px;
+    color: var(--primary);
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background-color: var(--light-dark);
+    box-shadow: 3px 3px var(--light);
+  }
+  
+  .subtitle {
+    padding-top: 2%;
+    padding-bottom: 0%;
+    display: inline;
+  }
+
+  .btn:hover {
+    color: var(--primary);
+    background-color: var(--tertiary);
+    transform: translate(0, 0);
+    box-shadow: 2px 2px var(--light);
+  }
+  
+  .form-input {
+    width: 90%;
+    height: 20%;
+  }
+
+  .hero {
+    background-color: var(--light);
+    color: var(--primary);
+    padding-top: 2%;
+    padding-left: 3%;
+    padding-bottom: 2.5%;
+    flex-wrap: wrap;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: var(--primary);
+    color: var(--secondary);
+    padding: 1% 2% 1% 2%;
+    border-radius: var(--border-radius);
+    box-shadow: 6px 5px var(--light-dark);
+    align-content: center;
+    display: inline;
+  }
+  
+ .card-body {
+  margin-left: 5%;
+  padding: 3%;
+  border: 1px solid var(--tertiary);
+  border-radius: 8px;
+  line-height: 3rem;
+  display: inline-flex;
+ }
+
+ .history-body {
+  display: block;
+  flex-direction: column;
+  padding-left: 3%;
+ }
+
+ .forecast-title {
+  margin-left: 3%;
+ }
+
+ .weather-container {
+  display: inline-flex;
+  border: 1px solid var(--tertiary);
+  border-radius: 8px;
+  padding: 2%;
+ }
+
+.days {
+  border: 1px solid var(--tertiary);
+  border-radius: 8px;
+  padding: 2%;
+  background-color: white;
+}
+
+.icon {
+  padding-left: 1.5rem;
+}
+
+.forecast {
+  background-color: var(--light);
+
+}
