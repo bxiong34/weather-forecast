@@ -33,6 +33,7 @@ When a user types a city name and click on the search button, their input will b
 
 Live site: https://bxiong34.github.io/weather-forecast/
 
+![Alt text](assets/images/search.png)
 ![Alt text](assets/images/forecast.png)
 
 - - -
