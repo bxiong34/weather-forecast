@@ -1,47 +1,39 @@
-# 05 Third-Party APIs: Work Day Scheduler
+# 06 Server-Side APIs: Weather Dashboard
 
 ## Description
 
-This challenge is to create a work day scheduler where a user can type and save acitvities that are planned for the day in local storage. Depending on the time, the time block will also change color to show if the activity is in the past, present, or future time (past=grey, present=green, and future=yellow).
+This challenge is to create a weather forecast to show the current forecast as well as the forecast for the next 5-days when a user types in a city name. Once a user search a city name, they are then shown the temperature, description of the weather, wind speed, and humidity for that day and the next 5 consecutive days.
 
 ## User Story
 
-```md
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
+```
+AS A traveler
+I WANT to see the weather outlook for multiple cities
+SO THAT I can plan a trip accordingly
 ```
 
 ## Acceptance Criteria
 
-```md
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours of 9am&ndash;5pm
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-WHEN I click into a timeblock
-THEN I can enter an event
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
+```
+GIVEN a weather dashboard with form inputs
+WHEN I search for a city
+THEN I am presented with current and future conditions for that city and that city is added to the search history
+WHEN I view current weather conditions for that city
+THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the wind speed
+WHEN I view future weather conditions for that city
+THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
+WHEN I click on a city in the search history
+THEN I am again presented with current and future conditions for that city
 ```
 
-The following animation demonstrates the application functionality:
-
-<!-- @TODO: create ticket to review/update image) -->
-![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
 
 ## Usage
 
-When a user types an activity and click on the save button, their input will be saved into the local storage so that the user can access their activities they have planned for the day.
+When a user types a city name and click on the search button, their input will be saved into the local storage so that the user can see which cities they previously searched.
 
-Live site: https://bxiong34.github.io/daily-planner/
+Live site: https://bxiong34.github.io/weather-forecast/
 
-![Alt text](<Assets/Screenshot 2023-10-10 at 5.48.09 PM.png>)
+![Alt text](assets/images/forecast.png)
 
 - - -
 © 2023 Bao Xiong. All Rights Reserved.
