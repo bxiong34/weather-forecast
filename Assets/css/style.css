@@ -63,6 +63,7 @@
     line-height: 1.25;
   }
 
+  /* small containers for 5-day forecast */
   #five-day-containers {
     display: inline-flex;
     flex-wrap: wrap;
@@ -73,6 +74,7 @@
     width: 100%;
    }
 
+   /* big container to hold all the small containers */
   .container {
     display: flex;
     flex-wrap: wrap;
@@ -94,6 +96,7 @@
     box-shadow: 3px 3px var(--light);
   }
   
+  /* smaller title at the top with weather forecast title */
   .subtitle {
     padding-top: 2%;
     padding-bottom: 0%;
@@ -112,6 +115,7 @@
     height: 20%;
   }
 
+  /* container that holds the header */
   .hero {
     background-color: var(--light);
     color: var(--primary);
@@ -133,6 +137,7 @@
     display: inline;
   }
   
+  /* container for search box */
  .card-body {
   margin-left: 5%;
   padding: 3%;
@@ -142,16 +147,19 @@
   display: inline-flex;
  }
 
+ /* container for search history */
  .history-body {
   display: block;
   flex-direction: column;
   padding-left: 3%;
  }
 
+ /* 5-day weather forecast title */
  .forecast-title {
   margin-left: 3%;
  }
 
+ /* container that holds current day's forecast */
  .weather-container {
   display: inline-flex;
   border: 1px solid var(--tertiary);
@@ -159,6 +167,7 @@
   padding: 2%;
  }
 
+ /* individual containers that hold the 5-day forecast */
 .days {
   border: 1px solid var(--tertiary);
   border-radius: 8px;
@@ -166,10 +175,12 @@
   background-color: white;
 }
 
+/* area that holds weather img */
 .icon {
   padding-left: 1.5rem;
 }
 
+/* big container that holds  all containers for the 5-day forecast */
 .forecast {
   background-color: var(--light);
 

@@ -18,10 +18,6 @@ var day4 = today.add(4, 'day');
 var day5 = today.add(5, 'day');
   $(".date5").text(day5.format("ddd MMMM D, YYYY"));
 
-var formSubmitHandler = function (event) {
-  event.preventDefault();
-};
-
 // function to get current day
 function updateDay() {
   var dateElement = $('.date');
@@ -234,31 +230,33 @@ else if (data.list[39].weather[0].main == "Snow"){
 
 }
 
-$("#search-btn").on("click", function () {
-//if no city is entered, an alert pops up
-if (searchInput.value == "") {
-  alert("Please enter city name.");
-  } else {
-  // fetches weather for whatever city that was entered in
-  fetchWeather(searchInput.value);
-  }
-  
-  var name = $("#cityname").val();
-  localStorage.setItem("cityname", name);
 
-  localStorage.getItem("cityname", name);
-    $("#history").append(name.text);
-  // })
-  })
+$(document).ready(function() {
+  $("#search-btn").click(function(event) {
+    event.preventDefault();
+    
+    //if no city is entered, an alert pops up
+    if (searchInput.value == "") {
+      alert("Please enter city name.");
+      } else {
+      // fetches weather for whatever city that was entered in
+      fetchWeather(searchInput.value);
+      }
 
-// function saveCityName () {
-//   var cityName = document.querySelector("#form-input").value;
-//   localStorage.setItem("cityname", cityName);
-//   localStorage.getItem("cityname");
-// }
+      var name = $("#cityname").val();
+      var list = document.createElement("li");
+      //save search input in local storage
+      localStorage.setItem("cityname", name);
 
-
-
+      //get search input and append to list under search history
+      var getList = localStorage.getItem("cityname", name);
+        list.textContent = name;
+        $("ul").append(list);
+      console.log(getList);
+      //clears
+      searchInput.value = ""; 
+      })
+});
 
 updateDay();
   
