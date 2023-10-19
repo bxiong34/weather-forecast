@@ -242,20 +242,24 @@ if (searchInput.value == "") {
   // fetches weather for whatever city that was entered in
   fetchWeather(searchInput.value);
   }
+  
+  var name = $("#cityname").val();
+  localStorage.setItem("cityname", name);
+
+  localStorage.getItem("cityname", name);
+    $("#history").append(name.text);
+  // })
   })
 
+// function saveCityName () {
+//   var cityName = document.querySelector("#form-input").value;
+//   localStorage.setItem("cityname", cityName);
+//   localStorage.getItem("cityname");
+// }
 
-function saveCityName () {
-  var cityName = document.querySelector(".cityname").value;
-  localStorage.setItem("cityname", cityName);
-  localStorage.getItem("cityname");
-}
+
 
 
 updateDay();
-
-
-// clear, rain, clouds
-
   
 
