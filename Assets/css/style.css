@@ -63,6 +63,17 @@
     line-height: 1.25;
   }
 
+  ul.history {
+    margin-top: 0px;
+    padding-left: 0px;
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+  
+  button {
+    background-color: var(--light);
+   }
+
   /* small containers for 5-day forecast */
   #five-day-containers {
     display: inline-flex;
@@ -74,6 +85,10 @@
     width: 100%;
    }
 
+   .card-body {
+    width: 400px;
+   }
+  
    /* big container to hold all the small containers */
   .container {
     display: flex;

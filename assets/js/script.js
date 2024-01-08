@@ -1,8 +1,6 @@
 var apiKey = "8442b51bde1d703e3c6b958d0e487f4d";
 var city = "";
 var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?units=imperial&q=";
-var searchInput = document.querySelector(".search-body input");
-var searchBtn = document.querySelector(".search btn");
 
 //days of weather
 var today = dayjs();
@@ -230,34 +228,67 @@ else if (data.list[39].weather[0].main == "Snow"){
 
 }
 
-
 $(document).ready(function() {
+  // load search history from local storage on page load
+  loadSearchHistory();
+
+  // click event for the search button
   $("#search-btn").click(function(event) {
     event.preventDefault();
-    
-    //if no city is entered, an alert pops up
-    if (searchInput.value == "") {
-      alert("Please enter city name.");
-      } else {
-      // fetches weather for whatever city that was entered in
-      fetchWeather(searchInput.value);
-      }
+    var name = $("#cityname").val();
 
-      var name = $("#cityname").val();
-      var list = document.createElement("li");
-      //save search input in local storage
-      localStorage.setItem("cityname", name);
+    // if no city is entered, an alert pops up
+    if (name.trim() === "") {
+        alert("Please enter city name.");
+    } else {
+        saveToLocalStorage(name);
+        createCityButton(name);
 
-      //get search input and append to list under search history
-      var getList = localStorage.getItem("cityname", name);
-        list.textContent = name;
-        $("ul").append(list);
-      console.log(getList);
-      //clears
-      searchInput.value = ""; 
-      })
-});
+        // fetches weather for whatever city that was entered in
+        fetchWeather(name);
+
+        // clear the input box
+        $("#cityname").val("");
+    }
+  });
+
+  // function to save city name to local storage
+  function saveToLocalStorage(cityName) {
+    // get existing city names from local storage
+    var storedCityNames = JSON.parse(localStorage.getItem("citynames")) || [];
+
+    // add new city name to the array
+    storedCityNames.push(cityName);
+    localStorage.setItem("citynames", JSON.stringify(storedCityNames));
+  }
+
+  // function to load search history from local storage
+  function loadSearchHistory() {
+    // get existing city names from local storage
+    var storedCityNames = JSON.parse(localStorage.getItem("citynames")) || [];
+    storedCityNames.forEach(function(cityName) {
+      createCityButton(cityName);
+    });
+  }
+
+  // function to create a button for a city name and append it to the search history list
+  function createCityButton(cityName) {
+    var list = document.createElement("button");
+    list.textContent = cityName;
+    list.classList.add("city-button");
+    // get search input and append to list under search history
+    $("ul").append(list);
+
+    // fetch weather for city when cityname is clicked
+    $(list).click(function() {
+      fetchWeather(cityName);
+    });
+  }
+
+  $("#clear-btn").click(function() {
+    localStorage.removeItem("citynames");
+    $("ul").empty();
+  });
+})
 
 updateDay();
-  
-
